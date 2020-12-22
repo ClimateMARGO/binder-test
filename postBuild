@@ -8,7 +8,7 @@ echo "== warmup start =="
 ! julia -e "import Pkg; Pkg.activate(\"pluto\"); Pkg.instantiate(); Pkg.API.precompile();"
 ! julia --project=$(pwd) --trace-compile="precompile.jl" notebook.jl
 echo "== warmup done =="
-# ! wc -l precompile.jl
+! wc -l precompile.jl
 echo ""
 
 free
@@ -22,5 +22,7 @@ Pkg.activate(".")
 proj = Pkg.API.project();
 pkgs = Symbol.(keys(proj.dependencies))
 proj.ispackage && push!(pkgs, Symbol(proj.name));
-create_sysimage(pkgs, precompile_statements_file="precompile.jl"; replace_default=true)
+create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so")
 __EOF__
+
+ls -lha notebook_sysimage.so
