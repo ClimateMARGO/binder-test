@@ -1,5 +1,7 @@
 #!/bin/bash
 
+date
+
 free
 
 echo "== warmup start =="
@@ -25,7 +27,8 @@ proj.ispackage && push!(pkgs, Symbol(proj.name));
 running = Ref(true)
 @async while running[]
     @info "Still alive!"
-    rm(download("https://julialang.org/"))
+    try run(`date`) catch end
+    try rm(download("https://julialang.org/")) catch end
     sleep(10)
 end
 create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so")
