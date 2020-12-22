@@ -37,7 +37,7 @@ model_parameters = deepcopy(ClimateMARGO.IO.included_configurations["default"])
 
 # ╔═╡ 432f7262-43d8-11eb-0f85-7b631b297520
 md"#### Maximum temperature: 
-0.0 °C $(@bind T_max Slider(0.0:0.01:3.0)) 3.0 °C"
+0.0 °C $(@bind T_max Slider(0.0:0.01:3.0, default=2)) 3.0 °C"
 
 # ╔═╡ 3c3f3e54-43d8-11eb-018d-4f78697cabe0
 begin
@@ -69,7 +69,7 @@ temperatures = Diagnostics.T(model; M=true, G=true, R=true)
 
 # ╔═╡ 9b3dd7e0-43d9-11eb-2fb3-efa8f23f305d
 let
-	p = plot(dpi=300, ylim=(0,3), ylabel="Global warming")
+	p = plot(dpi=300, ylim=(0, 3), ylabel="Global warming")
 	plot!(p, time, temperatures)
 	plot!(p, time, [T_max for _ in time], label="Goal")
 end
