@@ -22,7 +22,14 @@ Pkg.activate(".")
 proj = Pkg.API.project();
 pkgs = Symbol.(keys(proj.dependencies))
 proj.ispackage && push!(pkgs, Symbol(proj.name));
+running = Ref(true)
+@async while running[]
+    @info "Still alive!"
+    rm(download("https://julialang.org/"))
+    sleep(10)
+end
 create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so")
+running[] = false
 __EOF__
 
 ls -lha notebook_sysimage.so
