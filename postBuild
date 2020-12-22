@@ -27,7 +27,7 @@ proj.ispackage && push!(pkgs, Symbol(proj.name));
 running = Ref(true)
 @async while running[]
     @info "Still alive!"
-    try run(`date`) catch end
+    try run(Cmd(["date"])) catch end
     try rm(download("https://julialang.org/")) catch end
     sleep(10)
 end
