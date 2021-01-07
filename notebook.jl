@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.17
+# v0.12.18
 
 using Markdown
 using InteractiveUtils
@@ -74,6 +74,17 @@ let
 	plot!(p, time, [T_max for _ in time], label="Goal")
 end
 
+# ╔═╡ 5d2124c5-56ee-4590-98f9-3537722eb74e
+pwd()
+
+# ╔═╡ 82369cb3-5f0e-4ba8-9cb7-690d06438e31
+readdir()
+
+# ╔═╡ f7447c99-8d07-439f-87d7-bf8bc54b8c46
+sprint() do io
+	Pkg.status(;io=io)
+end |> Text
+
 # ╔═╡ Cell order:
 # ╟─bf98995e-43d9-11eb-2e0b-0bc7ff69ab9f
 # ╠═111c96ce-43d8-11eb-2a3c-c93c2242a22d
@@ -84,3 +95,6 @@ end
 # ╠═3c3f3e54-43d8-11eb-018d-4f78697cabe0
 # ╠═ee5fbc50-43d8-11eb-149f-7d6fec48c0f7
 # ╠═d72a8d8a-43d8-11eb-0990-ed2af0b20026
+# ╠═5d2124c5-56ee-4590-98f9-3537722eb74e
+# ╠═82369cb3-5f0e-4ba8-9cb7-690d06438e31
+# ╠═f7447c99-8d07-439f-87d7-bf8bc54b8c46
