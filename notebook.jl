@@ -17,6 +17,7 @@ end
 begin
 	import Pkg
 	Pkg.activate(".")
+	Pkg.instantiate()
 	using ClimateMARGO
 	using ClimateMARGO.Models
 	using ClimateMARGO.Optimization
