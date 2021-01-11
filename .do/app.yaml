@@ -1,0 +1,8 @@
+name: bind-server
+services:
+    - dockerfile_path: .do/Dockerfile
+      github:
+          branch: main
+          deploy_on_push: true
+          repo: ClimateMARGO/binder-test
+      name: bind-server
